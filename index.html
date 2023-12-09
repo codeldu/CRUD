@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <input
+      type="text"
+      style="width: 60%; margin-top: 50px; height: 45px; font-size: 20px"
+      placeholder="Ada görə axtar..."
+    />
+
+    <h2>CRUD by API</h2>
+    <table id="table1">
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>PRICE</th>
+        <th>STOCK</th>
+        <th>Delete</th>
+        <th>Update</th>
+      </tr>
+      <tr style="height: 50px" class="spinner">
+        <td colspan="6" >
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 5px;
+            "
+          >
+            <span class="loader"></span>Loading...
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <button id="add">+</button>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

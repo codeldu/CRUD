@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h2>Edit product</h2>
+    <table id="table2">
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>PRICE</th>
+        <th>STOCK</th>
+      </tr>
+      <tr class="spinner2" >
+        <th colspan="4">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+            <span class="loader"></span>Loading...
+          </div>
+        </th>
+      </tr>
+    </table>
+    <div class="spinner" style="display: none; align-items: center; gap: 5px;">
+      <span class="loader"></span>Loading...
+    </div>
+    <div class="done" style="display: none; align-items: center; gap: 5px;">
+      <img src="./done.png" width="30" height="30" alt="done"><p>Məhsul uğurla yeniləndi. Əsas səhifəyə yönləndirilir...</p>
+    </div>
+    <div class="error" style="display: none; align-items: center; gap: 5px;">
+      <img src="./error.png" width="30" height="30" alt="done"><p>Bütün xanaları doldurmaq, mütləqdir</p>
+    </div>
+    <button style="height: 40px; width: 120px; position: absolute; bottom: 30px; left: 30px;"><a href="./index.html"> Əsas səhifəyə qayıt 🔙 </a></button>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./update.js"></script>
+</body>
+</html>
