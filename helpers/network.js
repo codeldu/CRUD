@@ -21,6 +21,30 @@ const network = {
     delete : async function(id) {
         let res = await axios.delete(this.url+id)
         return res.data;
+    },
+    getNamesWithArray  : async function(){
+        let res= await axios.get(this.url);
+        let resArr = [];
+
+        res.data.forEach(element => {
+            resArr.push(element.name)
+        });
+
+        return resArr; 
+    },
+    getWithModel : async function(){
+        let res= await axios.get(this.url);
+        let resArr = [];
+        res.data.forEach(element=>{
+            let model = {
+                id: element.id,
+                name: element.name,
+                price: element.unitPrice,
+                stock : element.unitsInStock
+            }
+            resArr.push(model)
+        })
+        return resArr;
     }
 }
 
