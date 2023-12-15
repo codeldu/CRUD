@@ -1,8 +1,7 @@
 let id = new URLSearchParams(window.location.search).get("id");
 let info = document.querySelector(".inform");
 
-fetch(`https://northwind.vercel.app/api/products/${id}`)
-.then(res => res.json())
+network.getById(id)
 .then(data => {
     info.innerHTML += `
         <h3>Mehsulun adi:</h3> <p> ${data.name} </p>
@@ -11,6 +10,7 @@ fetch(`https://northwind.vercel.app/api/products/${id}`)
         <h3>Qablasdirmada: </h3><p>${data.quantityPerUnit}</p>
     `
 })
+
 
 let btn =document.querySelector("#btn");
 

@@ -5,10 +5,10 @@ let spinner2 = document.querySelector(".spinner2");
 let done = document.querySelector(".done");
 let error = document.querySelector(".error");
 
-fetch(`https://northwind.vercel.app/api/products/${id}`)
-  .then((res) => res.json())
-  .then((element) => {
-    spinner2.style.display = "none";
+
+network.getById(id)
+.then(element=>{
+  spinner2.style.display = "none";
     table2.innerHTML += `
         <tr>
             <td>${element.id}</td>
@@ -28,22 +28,24 @@ fetch(`https://northwind.vercel.app/api/products/${id}`)
       if (priceInp.value && stockInp.value && nameInp.value) {
         error.style.display = 'none'
         spinner.style.display = "flex";
-        axios
-          .patch("https://northwind.vercel.app/api/products/" + id, {
-            name: nameInp.value,
-            unitPrice: priceInp.value,
-            unitsInStock: stockInp.value,
-          })
-          .then((res) => {
+
+        let body = {
+          name: nameInp.value,
+          unitPrice: priceInp.value,
+          unitsInStock: stockInp.value,
+        }
+        network.update(id, body)
+          .then((data) => {
             setTimeout(() => {
-              window.location = "./index.html";
+              window.location = "../index.html";
             }, 3000);
             spinner.style.display = "none";
-            done.innerHTML += `ID nömrəsi : ${res.data.id}`;
+            done.innerHTML += `ID nömrəsi : ${data.id}`;
             done.style.display = "flex";
           });
       }else{
             error.style.display = 'flex'
       }
     });
-  });
+})
+

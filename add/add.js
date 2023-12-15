@@ -10,19 +10,19 @@ btn.addEventListener("click", () => {
   if (priceInp.value && stockInp.value && nameInp.value) {
     error.style.display = 'none';
     spinner.style.display = "flex";
-    axios
-      .post("https://northwind.vercel.app/api/products", {
-        name: nameInp.value,
-        unitPrice: priceInp.value,
-        unitsInStock: stockInp.value,
-      })
-      .then((res) => {
-       
+    const body = {
+      name : nameInp.value,
+      unitPrice : priceInp.value,
+      unitsInStock : stockInp.value
+    }
+
+    network.add(body)
+      .then((data) => {  
         setTimeout(() => {
-          window.location = "./index.html";
+          window.location = "../index.html";
         }, 3000);
         spinner.style.display = "none";
-        done.innerHTML += `ID nömrəsi : ${res.data.id}`;
+        done.innerHTML += `ID nömrəsi : ${data.id}`;
         done.style.display = "flex";
       });
   }else{
